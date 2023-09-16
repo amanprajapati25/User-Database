@@ -12,10 +12,9 @@ const userInfoSchema = mongoose.Schema({
         type: String,
         required: [true, 'Please add the phone number']
     }
-
 },
     {
-        timeStamps: true
-    }
-)
-module.export = mongoose.model('userInfo', userInfoSchema);
+        timestamps: true // It should be "timestamps" not "timeStamps"
+    });
+
+module.exports = mongoose.model('userInfo', userInfoSchema);
