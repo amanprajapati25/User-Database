@@ -1,11 +1,10 @@
 import mongoose from "mongoose";
-import { DB_NAME } from "../constants.js";
+import { DB_NAME, mongo } from "../constants.js";
 
 async function DBConnect() {
     try{
-        console.log("chkk", process.env.PORT)
-        const connect = await mongoose.connect(`${process.env.MONGODB_URI}/${ DB_NAME }`)
-        console.log("connected",connect.connection.host)
+        const connect = await mongoose.connect(`${mongo}/${ DB_NAME }`)
+        console.log("connectedk",connect.connection.host)
     }
     catch(err){
         console.error("DB isn't connected",err)
@@ -14,3 +13,5 @@ async function DBConnect() {
 }
 
 export default DBConnect;
+
+// const connect = await mongoose.connect(`mongodb://${process.env.MONGODB_URI}/${DB_NAME}`, {
